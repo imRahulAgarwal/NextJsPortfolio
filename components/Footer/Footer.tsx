@@ -12,36 +12,10 @@ const Footer = () => {
 								<img src="assets/img/logo/logo.png" alt="" />
 							</a>
 						</div>
-						<div>
-							<nav>
-								<ul className={styles.footerMenuUl}>
-									<li>
-										<a className={styles.footerMenuUlItemLink} href="about.html">
-											About
-										</a>
-									</li>
-									<li>
-										<a className={styles.footerMenuUlItemLink} href="services.html">
-											Services
-										</a>
-									</li>
-									<li>
-										<a className={styles.footerMenuUlItemLink} href="portfolio.html">
-											Portfolios
-										</a>
-									</li>
-									<li>
-										<a className={styles.footerMenuUlItemLink} href="contact.html">
-											Contact
-										</a>
-									</li>
-								</ul>
-							</nav>
-						</div>
 						<div className={styles.copyText}>
 							<p className={styles.copyTextP}>
-								© 2024 All rights reserved by{" "}
-								<a className={styles.copyTextPLink} href="#" target="_blank">
+								© {new Date().getFullYear()} All rights reserved by{" "}
+								<a className={styles.copyTextPLink} href="/" target="_blank">
 									Rahul Agarwal
 								</a>
 							</p>

@@ -8,7 +8,7 @@
 }
 
 .downloadResumeButton {
-	@apply flex items-center gap-1.5 no-underline text-15 hover:bg-primary hover:text-white text-primary rounded-[50px] py-[17px] px-[35px] border border-primary transition duration-300;
+	@apply w-fit flex items-center gap-1.5 no-underline text-15 hover:bg-primary hover:text-white text-primary rounded-[50px] py-[17px] px-[35px] border border-primary transition duration-300;
 	letter-spacing: 1px;
 }
 

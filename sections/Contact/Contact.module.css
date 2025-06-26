@@ -25,9 +25,9 @@
 }
 
 .formButton {
-	@apply py-5 px-[35px] no-underline inline-flex gap-2.5 items-center justify-center text-15 leading-none font-bold
+	@apply py-4 px-9 no-underline inline-flex gap-2.5 items-center justify-center text-15 leading-none font-bold
 	text-white capitalize bg-size-[200%] bg-linear-to-r from-0% from-primary via-[51%] via-secondary to-100% to-primary
-	border-0 rounded-full px-[35px] py-[17px] transition-all duration-[400ms] hover:bg-position-[-100%] w-full;
+	border-0 rounded-full transition-all duration-[400ms] hover:bg-position-[-100%] w-full;
 	display: -webkit-inline-box;
 	display: -ms-inline-flexbox;
 	-webkit-box-align: center;

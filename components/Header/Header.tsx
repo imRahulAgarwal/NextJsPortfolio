@@ -13,11 +13,11 @@ interface CustomNavLink {
 }
 
 const navLinks: CustomNavLink[] = [
-	{ label: "Home", href: "#" },
-	{ label: "Services", href: "#" },
-	{ label: "Portfolio", href: "#" },
-	{ label: "Skills", href: "#" },
-	{ label: "Contact", href: "#" },
+	{ label: "Home", href: "#home" },
+	{ label: "Services", href: "#services" },
+	{ label: "Portfolio", href: "#portfolio" },
+	{ label: "Skills", href: "#skills" },
+	{ label: "Contact", href: "#contact" },
 ];
 
 const Header = () => {
@@ -28,6 +28,11 @@ const Header = () => {
 
 	useEffect(() => {
 		const handleScroll = () => setIsScrolled(window.scrollY > 100);
+
+		if (window.location.hash) {
+			setIsScrolled(true);
+		}
+
 		window.addEventListener("scroll", handleScroll);
 		return () => window.removeEventListener("scroll", handleScroll);
 	}, []);
@@ -62,12 +67,16 @@ const Header = () => {
 							))}
 						</ul>
 
-						<Button title="Hire Me!" />
+						<Link href={"#contact"}>
+							<Button title="Hire Me!" />
+						</Link>
 					</div>
 
 					<div className="lg:hidden flex items-center gap-5">
 						<div className="hidden sm:block">
-							<Button title="Hire Me!" />
+							<Link href={"#contact"}>
+								<Button title="Hire Me!" />
+							</Link>
 						</div>
 
 						<button
@@ -103,7 +112,9 @@ const Header = () => {
 									))}
 								</ul>
 
-								<Button title="Hire Me!" />
+								<Link href={"#contact"} onClick={closeMobileMenu}>
+									<Button title="Hire Me!" />
+								</Link>
 
 								<Link
 									href="mailto:imagarwal05@gmail.com"
