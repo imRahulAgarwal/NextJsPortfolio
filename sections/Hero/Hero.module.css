@@ -1,0 +1,25 @@
+@reference "../../app/globals.css";
+
+.heroTitle {
+	@apply font-bold text-white text-[65px] bg-gradient-to-r from-0% from-primary to-100% to-white;
+	-webkit-background-clip: text;
+	-webkit-text-fill-color: transparent;
+	line-height: 1.2;
+}
+
+.downloadResumeButton {
+	@apply flex items-center gap-1.5 no-underline text-15 hover:bg-primary hover:text-white text-primary rounded-[50px] py-[17px] px-[35px] border border-primary transition duration-300;
+	letter-spacing: 1px;
+}
+
+.heroImageBox {
+	@apply relative text-center flex justify-center items-center;
+}
+
+.heroImageBox::before {
+	@apply content-[""] absolute bottom-0 left-0 w-56 h-56 rounded-[50%] bg-gradient-to-br from-primary from-0% to-accent-1 to-100% blur-[150px] ml-[-5%] mb-[-5%];
+}
+
+.heroImage {
+	@apply rounded-[38px] relative border-2 border-secondary transition-all duration-300 rotate-[4.29deg] hover:border-primary hover:rotate-0;
+}

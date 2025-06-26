@@ -1,0 +1,123 @@
+@import "tailwindcss";
+
+@theme {
+	--color-black-1: #050709;
+
+	--color-primary: #8750f7;
+	--color-secondary: #2a1454;
+
+	--color-accent-1: #0f0715;
+	--color-accent-2: #140c1c;
+
+	--color-grey-1: #747779;
+	--color-grey-2: #22272c;
+	--color-grey-3: #636363;
+
+	--text-15: 15px;
+
+	/* Bootstrap-style breakpoints */
+	--breakpoint-xs: 0px; /* Extra small devices (portrait phones) */
+	--breakpoint-sm: 576px; /* Small devices (landscape phones) */
+	--breakpoint-md: 768px; /* Medium devices (tablets) */
+	--breakpoint-lg: 992px; /* Large devices (desktops) */
+	--breakpoint-xl: 1200px; /* Extra large devices (large desktops) */
+	--breakpoint-xxl: 1400px; /* Extra extra large devices (larger desktops) */
+}
+
+@layer components {
+	.custom-container {
+		width: 100%;
+		margin-left: auto !important;
+		margin-right: auto !important;
+		padding-left: 1rem !important;
+		padding-right: 1rem !important;
+
+		@media (min-width: 576px) {
+			max-width: 540px;
+		}
+		@media (min-width: 768px) {
+			max-width: 720px;
+		}
+		@media (min-width: 992px) {
+			max-width: 960px;
+		}
+		@media (min-width: 1200px) {
+			max-width: 1140px;
+		}
+		@media (min-width: 1400px) {
+			max-width: 1320px;
+		}
+	}
+}
+
+:root {
+	--body: #dddddd;
+	--white: #ffffff;
+
+	--accent-1: #0f0715;
+	--accent-2: #140c1c;
+
+	--primary: #8750f7;
+	--secondary: #2a1454;
+
+	--black: #000000;
+	--black-1: #050709;
+
+	--grey-1: #747779;
+	--grey-2: #22272c;
+	--grey-3: #636363;
+
+	font-size: 16px;
+}
+
+* {
+	-webkit-box-sizing: border-box;
+	box-sizing: border-box;
+	scrollbar-width: thin;
+	scrollbar-color: var(--primary) var(--secondary);
+}
+
+::-webkit-scrollbar {
+	height: 4px;
+	width: 4px;
+	background: var(--secondary);
+}
+
+::-webkit-scrollbar-thumb {
+	background: var(--primary);
+	-webkit-border-radius: 1ex;
+	-webkit-box-shadow: 0px 0px 0px rgba(0, 0, 0, 0.75);
+}
+
+::-webkit-scrollbar-corner {
+	background: transparent;
+}
+
+html,
+body {
+	min-height: 100%;
+	overflow-x: hidden;
+	scroll-behavior: smooth;
+}
+
+body {
+	color: var(--body);
+	font-family: var(--font-sora);
+	font-size: 1rem;
+	font-weight: 400;
+	background-color: var(--accent-1);
+}
+
+.section-header {
+	@apply flex flex-col items-center justify-center max-w-[700px] w-full mx-auto mb-[50px] text-center;
+}
+
+.section-header-title {
+	@apply text-[45px] bg-gradient-to-r from-0% from-primary to-100% to-white inline-flex gap-4 mb-0 font-bold;
+	-webkit-background-clip: text;
+	-webkit-text-fill-color: transparent;
+}
+
+.resumeSection {
+	@apply bg-black-1 pt-[120px] pb-[90px];
+}

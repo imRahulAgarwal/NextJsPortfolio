@@ -1,0 +1,27 @@
+@reference "../../app/globals.css";
+
+.navItem {
+	@apply relative;
+}
+
+.navLink {
+	@apply text-white;
+}
+
+.mobileScreenLink {
+	@apply transition-colors duration-300 ease-in-out;
+}
+
+.navItem:hover > .mobileScreenLink {
+	@apply text-primary;
+}
+
+.notMobileScreenLink::before {
+	@apply content-[""] absolute w-full h-0.5 rounded-sm left-0 -bottom-1
+    bg-gradient-to-r from-0% from-secondary to-100% to-primary
+    origin-right scale-x-0 transition-transform duration-300 ease-in-out;
+}
+
+.navItem:hover > .notMobileScreenLink::before {
+	@apply origin-left scale-x-100;
+}

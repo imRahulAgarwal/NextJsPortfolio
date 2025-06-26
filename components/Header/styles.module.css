@@ -1,0 +1,151 @@
+@reference "../../app/globals.css";
+
+@-webkit-keyframes bounceInDown {
+	0% {
+		opacity: 0;
+		-webkit-transform: translateY(-2000px);
+	}
+	60% {
+		opacity: 1;
+		-webkit-transform: translateY(0px);
+	}
+	80% {
+		-webkit-transform: translateY(-10px);
+	}
+	100% {
+		-webkit-transform: translateY(0);
+	}
+}
+
+@keyframes bounceInDown {
+	0% {
+		opacity: 0;
+		-webkit-transform: translateY(-2000px);
+		transform: translateY(-2000px);
+	}
+	60% {
+		opacity: 1;
+		-webkit-transform: translateY(0px);
+		transform: translateY(0px);
+	}
+	80% {
+		-webkit-transform: translateY(-10px);
+		transform: translateY(-10px);
+	}
+	100% {
+		-webkit-transform: translateY(0);
+		transform: translateY(0);
+	}
+}
+
+@-webkit-keyframes bounceInUp {
+	0%,
+	10%,
+	35%,
+	50%,
+	to {
+		-webkit-animation-timing-function: cubic-bezier(0.215, 0.61, 0.355, 1);
+		animation-timing-function: cubic-bezier(0.215, 0.61, 0.355, 1);
+	}
+	10% {
+		-webkit-transform: translate3d(0, 0px, 0);
+		transform: translate3d(0, 0px, 0);
+	}
+	35% {
+		-webkit-transform: translate3d(0, -10px, 0);
+		transform: translate3d(0, -10px, 0);
+	}
+	50% {
+		-webkit-transform: translate3d(0, 2px, 0);
+		transform: translate3d(0, 2px, 0);
+	}
+	80% {
+		-webkit-transform: translate3d(0, -90px, 0);
+		transform: translate3d(0, -90px, 0);
+	}
+	to {
+		-webkit-transform: translate3d(0, -3000px, 0);
+		transform: translate3d(0, -3000px, 0);
+	}
+}
+
+@keyframes bounceInUp {
+	0%,
+	10%,
+	35%,
+	50%,
+	to {
+		-webkit-animation-timing-function: cubic-bezier(0.215, 0.61, 0.355, 1);
+		animation-timing-function: cubic-bezier(0.215, 0.61, 0.355, 1);
+	}
+	10% {
+		-webkit-transform: translate3d(0, 0px, 0);
+		transform: translate3d(0, 0px, 0);
+	}
+	35% {
+		-webkit-transform: translate3d(0, -10px, 0);
+		transform: translate3d(0, -10px, 0);
+	}
+	50% {
+		-webkit-transform: translate3d(0, 2px, 0);
+		transform: translate3d(0, 2px, 0);
+	}
+	80% {
+		-webkit-transform: translate3d(0, -90px, 0);
+		transform: translate3d(0, -90px, 0);
+	}
+	to {
+		-webkit-transform: translate3d(0, -3000px, 0);
+		transform: translate3d(0, -3000px, 0);
+	}
+}
+
+@keyframes slideInLeft {
+	from {
+		opacity: 0;
+		transform: translateX(-100%);
+	}
+	to {
+		opacity: 1;
+		transform: translateX(0);
+	}
+}
+
+.header {
+	@apply py-5 relative bg-black-1 w-full top-0 left-0 z-[100];
+	transition: 0.3s;
+}
+
+.headerSticky {
+	@apply fixed;
+	box-shadow: 0 0 30px rgba(135, 80, 247, 0.2);
+	animation: bounceInDown 1s;
+	animation-duration: 1s;
+	animation-fill-mode: both;
+}
+
+.headerAbsolute {
+	@apply absolute bg-transparent;
+}
+
+.mailToLinkHeader {
+	@apply text-white text-[15px] font-medium hover:text-primary;
+	transition: all 0.3s ease-in-out 0s;
+}
+
+.mobileMenuOverlay {
+	@apply fixed inset-0 bg-black/95 z-[150] lg:hidden;
+	animation: slideInLeft 0.3s ease-in-out;
+}
+
+.mobileCloseButton {
+	@apply absolute top-6 right-6 text-white hover:text-primary transition-colors duration-300 p-2 cursor-pointer;
+}
+
+.mobileNavContainer {
+	@apply flex flex-col justify-start items-start h-full pt-20 px-8 gap-6;
+}
+
+.mobileEmailLink {
+	@apply text-white text-base font-medium hover:text-primary transition-colors duration-300 opacity-80;
+}

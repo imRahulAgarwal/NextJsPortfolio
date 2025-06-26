@@ -1,0 +1,58 @@
+@reference "../../app/globals.css";
+
+.footer {
+	@apply bg-accent-1 pt-[50px] px-0 pb-5;
+}
+
+.footerLogoBox {
+	@apply max-w-[75px] w-full mt-0 mx-auto mb-[35px];
+}
+
+.footerLogoBoxLink {
+	@apply inline-block;
+}
+
+.footerMenuUl {
+	@apply mt-0 mx-0 mb-[27px] p-0 list-none flex flex-wrap items-center justify-center gap-[35px];
+	display: -webkit-box;
+	display: -ms-flexbox;
+	-ms-flex-wrap: wrap;
+	-webkit-box-align: center;
+	-ms-flex-align: center;
+	-webkit-box-pack: center;
+	-ms-flex-pack: center;
+}
+
+.footerMenuUlItemLink {
+	@apply text-white text-15 font-bold no-underline relative;
+}
+
+.footerMenuUlItemLink::before {
+	@apply content-[""] absolute w-full h-0.5 rounded-sm bg-gradient-to-br from-0% from-secondary to-100% to-primary
+    bottom-[-2px] left-0 origin-right scale-x-0;
+	-webkit-transform-origin: right;
+	-ms-transform-origin: right;
+	-webkit-transform: scaleX(0);
+	-ms-transform: scaleX(0);
+	-webkit-transition: -webkit-transform 0.3s ease-in-out;
+	transition: -webkit-transform 0.3s ease-in-out;
+	-o-transition: transform 0.3s ease-in-out;
+	transition: transform 0.3s ease-in-out;
+	transition: transform 0.3s ease-in-out, -webkit-transform 0.3s ease-in-out;
+}
+
+.footerMenuUlItemLink:hover::before {
+	@apply scale-x-100 origin-left;
+	-webkit-transform-origin: left;
+	-ms-transform-origin: left;
+	-webkit-transform: scaleX(1);
+	-ms-transform: scaleX(1);
+}
+
+.copyTextP {
+	@apply mb-0 text-grey-3 font-light;
+}
+
+.copyTextPLink {
+	@apply no-underline font-normal text-white transition duration-300 hover:text-primary;
+}

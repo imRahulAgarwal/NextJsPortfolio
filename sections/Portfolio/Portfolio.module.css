@@ -1,0 +1,41 @@
+@reference "../../app/globals.css";
+
+.portfolioFilterButton {
+	@apply rounded-full py-3 px-6 text-15 capitalize text-white border-0
+    transition-colors duration-300 not-sm:border-primary not-sm:border;
+}
+
+.portfolioFilterButtonInactive {
+	@apply bg-transparent;
+}
+
+.portfolioFilterButtonActive {
+	@apply bg-gradient-to-br from-0% from-secondary to-100% to-primary;
+}
+
+.portfolioItem {
+	@apply relative rounded-lg bg-accent-2 px-9 pt-9;
+}
+
+.portfolioItem img {
+	@apply w-full h-auto max-w-full object-cover;
+}
+
+.portfolioContentBox {
+	@apply absolute rounded-2xl mx-auto bottom-5 right-5 left-5 p-5
+    opacity-0 invisible duration-300 translate-y-4 
+    bg-gradient-to-br from-0% from-secondary to-100% to-primary
+    flex items-center justify-between;
+}
+
+.portfolioItem:hover .portfolioContentBox {
+	@apply opacity-100 visible translate-y-0;
+}
+
+.portfolioI {
+	@apply text-white duration-500 transition-all rotate-0;
+}
+
+.portfolioItem:hover .portfolioI {
+	@apply rotate-[360deg];
+}

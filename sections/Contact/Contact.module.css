@@ -1,0 +1,61 @@
+@reference "../../app/globals.css";
+
+.formGroup {
+	@apply mb-[15px] w-full;
+}
+
+.formGroup select,
+.formGroup .nice-select,
+.formGroup input:not([type="submit"]):not([type="radio"]):not([type="checkbox"]),
+.formGroup textarea {
+	@apply block w-full bg-gray-800 border border-gray-600 text-base leading-none text-white px-5 py-3.5 rounded-lg transition-all duration-300 ease-out outline-none h-auto;
+}
+
+.formGroup .nice-select {
+	@apply py-4 px-5;
+}
+
+.formGroup textarea {
+	@apply h-50 resize-none;
+}
+
+.formGroup input:not([type="submit"]):not([type="radio"]):not([type="checkbox"]):focus,
+.formGroup textarea:focus {
+	@apply border-blue-500;
+}
+
+.formButton {
+	@apply py-5 px-[35px] no-underline inline-flex gap-2.5 items-center justify-center text-15 leading-none font-bold
+	text-white capitalize bg-size-[200%] bg-linear-to-r from-0% from-primary via-[51%] via-secondary to-100% to-primary
+	border-0 rounded-full px-[35px] py-[17px] transition-all duration-[400ms] hover:bg-position-[-100%] w-full;
+	display: -webkit-inline-box;
+	display: -ms-inline-flexbox;
+	-webkit-box-align: center;
+	-ms-flex-align: center;
+	-webkit-box-pack: center;
+	-ms-flex-pack: center;
+}
+
+.formButton:hover {
+	@apply bg-position-[-100%];
+}
+
+.contactInfoListItem {
+	@apply mb-10 flex flex-wrap items-center gap-4;
+}
+
+.contactInfoListItem:last-child {
+	@apply mb-0;
+}
+
+.contactInfoListIconBox {
+	@apply w-[50px] h-[50px] rounded-[50%] flex justify-center items-center text-center text-xl leading-[60px] bg-gradient-to-bl from-0% from-secondary to-100% to-primary;
+}
+
+.textBoxP {
+	@apply mb-[3px];
+}
+
+.textBoxLink {
+	@apply text-xl font-medium text-white no-underline transition-all duration-[400] delay-[0] ease-in-out hover:text-primary;
+}
