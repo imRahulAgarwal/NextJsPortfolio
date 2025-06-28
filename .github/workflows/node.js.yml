@@ -28,12 +28,6 @@ jobs:
             - name: Build the code
               run: npm run build
 
-            - name: Move the folder to /var/www/NextJsPortfolio
-              run: mv ./dist/* /var/www/NextJsPortfolio
-
-            - name: Change the working directory
-              run: cd /var/www/NextJsPortfolio
-
             - name: Start or Re-Start PM2 process
               run: |
                   pm2 stop nextjsportfolio >> /dev/null 2>&1 || true
