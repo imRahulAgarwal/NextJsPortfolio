@@ -42,7 +42,7 @@ const Skills = () => {
 						<div className={styles.skillItemInner}>
 							<div className={styles.skillItemIconBox}>
 								<img
-									src={`/skills/${skill.icon}`}
+									src={`/Skills/${skill.icon}`}
 									alt={skill.title}
 									className={styles.skillItemIconBoxImage}
 								/>
