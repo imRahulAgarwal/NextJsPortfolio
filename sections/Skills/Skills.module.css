@@ -1,4 +1,4 @@
-@reference "../../app/globals.css";
+/* @reference "../../app/globals.css";
 
 .skillsSection {
 	@apply py-[120px] bg-accent-1;
@@ -60,4 +60,152 @@
 
 .skillItemP {
 	@apply text-primary mb-0;
+} */
+
+@reference "../../app/globals.css";
+
+.skillsSection {
+	@apply py-[120px] bg-accent-1;
+}
+
+.sectionHeader {
+	@apply mx-auto max-w-[700px] mb-[50px] w-full text-center;
+}
+
+.sectionHeaderTitle {
+	@apply text-[45px] bg-gradient-to-r from-0% from-primary to-100% to-white inline-flex gap-4 mb-0 font-bold;
+	-webkit-background-clip: text;
+	-webkit-text-fill-color: transparent;
+}
+
+.sectionHeaderP {
+	@apply mt-[15px] mb-0;
+}
+
+/* Skills Slider Styles */
+.skillsSlider {
+	@apply overflow-hidden space-y-8;
+}
+
+.skillsRowContainer {
+	@apply w-full overflow-hidden py-4;
+}
+
+.skillsRow {
+	@apply flex gap-8 w-max;
+}
+
+.skillItem {
+	@apply w-40 flex flex-col justify-center items-center flex-shrink-0;
+}
+
+.skillItemInner {
+	@apply rounded-3xl h-40 w-40 flex items-center justify-center bg-accent-2 border border-transparent mb-[15px] transition-all duration-300;
+}
+
+.skillItemIconBox {
+	@apply max-w-20 max-h-20 h-full w-full;
+}
+
+.skillItemIconBoxImage {
+	@apply transition-all duration-300;
+}
+
+.skillItemP {
+	@apply text-primary mb-0 text-center;
+}
+
+/* Desktop hover effects */
+@media (min-width: 769px) {
+	.skillItemIconBox {
+		@apply opacity-50;
+	}
+
+	.skillItemIconBoxImage {
+		@apply grayscale-[90%];
+		-webkit-filter: grayscale(90%);
+	}
+
+	.skillItem:hover .skillItemInner {
+		@apply bg-secondary border-primary scale-110;
+		transform: scale(1.02);
+	}
+
+	.skillItem:hover .skillItemIconBox {
+		@apply opacity-100;
+	}
+
+	.skillItem:hover .skillItemIconBoxImage {
+		@apply grayscale-0;
+		-webkit-filter: grayscale(0);
+	}
+
+	/* Pause animation on hover */
+	.skillsRow:hover {
+		animation-play-state: paused !important;
+	}
+}
+
+/* Mobile styles (768px and below) - colorful by default */
+@media (max-width: 768px) {
+	.skillsSlider {
+		@apply space-y-6;
+	}
+
+	.skillItem {
+		@apply w-32;
+	}
+
+	.skillItemInner {
+		@apply h-32 w-32 bg-secondary border-primary;
+	}
+
+	.skillItemIconBox {
+		@apply opacity-100 max-w-16 max-h-16;
+	}
+
+	.skillItemIconBoxImage {
+		@apply grayscale-0;
+		-webkit-filter: grayscale(0);
+	}
+
+	.skillsRow {
+		@apply gap-6;
+	}
+
+	.skillItemP {
+		@apply text-sm leading-tight max-w-full break-words text-center px-1;
+		min-height: 2.5rem;
+		display: flex;
+		align-items: center;
+		justify-content: center;
+	}
+}
+
+/* Animation keyframes */
+@keyframes slideLeft {
+	0% {
+		transform: translateX(0);
+	}
+	100% {
+		transform: translateX(-33.333333%);
+	}
+}
+
+@keyframes slideRight {
+	0% {
+		transform: translateX(-33.333333%);
+	}
+	100% {
+		transform: translateX(0);
+	}
+}
+
+/* Apply animations */
+.slideLeft {
+	animation: slideLeft 25s linear infinite;
+}
+
+.slideRight {
+	animation: slideRight 25s linear infinite;
 }

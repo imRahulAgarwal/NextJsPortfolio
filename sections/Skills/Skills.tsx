@@ -2,7 +2,12 @@ import React from "react";
 import styles from "./Skills.module.css";
 import FadeInOnView from "@/components/FadeInOnView/FadeInOnView";
 
-const skillsArray = [
+interface SkillItem {
+	title: string;
+	icon: string;
+}
+
+const skillsArray: SkillItem[] = [
 	{ title: "JavaScript (ES6+)", icon: "javascript.svg" },
 	{ title: "TypeScript", icon: "typescript.svg" },
 	{ title: "Node JS", icon: "node_js.svg" },
@@ -21,7 +26,35 @@ const skillsArray = [
 	{ title: "WordPress", icon: "wordpress.svg" },
 ];
 
+// Split skills into two rows
+const firstRowSkills = skillsArray.slice(0, 8);
+const secondRowSkills = skillsArray.slice(8);
+
 const Skills = () => {
+	const renderSkillsRow = (skills: SkillItem[], direction = "left") => {
+		// Duplicate skills for seamless loop
+		const duplicatedSkills = [...skills, ...skills, ...skills];
+
+		return (
+			<div className={`${styles.skillsRow} ${styles[`slide${direction === "left" ? "Left" : "Right"}`]}`}>
+				{duplicatedSkills.map((skill, index) => (
+					<div key={`${skill.title}-${index}`} className={styles.skillItem}>
+						<div className={styles.skillItemInner}>
+							<div className={styles.skillItemIconBox}>
+								<img
+									src={`/skills/${skill.icon}`}
+									alt={skill.title}
+									className={styles.skillItemIconBoxImage}
+								/>
+							</div>
+						</div>
+						<p className={styles.skillItemP}>{skill.title}</p>
+					</div>
+				))}
+			</div>
+		);
+	};
+
 	return (
 		<section className={styles.skillsSection} id="skills">
 			<div className="custom-container">
@@ -41,21 +74,12 @@ const Skills = () => {
 					</div>
 				</div>
 
-				<div className={styles.skillsWidget}>
-					{skillsArray.map((skill, index) => (
-						<FadeInOnView key={index} className={styles.skillItem}>
-							<div className={styles.skillItemInner}>
-								<div className={styles.skillItemIconBox}>
-									<img
-										src={`/skills/${skill.icon}`}
-										alt={skill.title}
-										className={styles.skillItemIconBoxImage}
-									/>
-								</div>
-							</div>
-							<p className={styles.skillItemP}>{skill.title}</p>
-						</FadeInOnView>
-					))}
+				<div className={styles.skillsSlider}>
+					{/* First row - slides left to right */}
+					<div className={styles.skillsRowContainer}>{renderSkillsRow(firstRowSkills, "left")}</div>
+
+					{/* Second row - slides right to left */}
+					<div className={styles.skillsRowContainer}>{renderSkillsRow(secondRowSkills, "right")}</div>
 				</div>
 			</div>
 		</section>

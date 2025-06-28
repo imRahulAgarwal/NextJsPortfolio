@@ -1,0 +1,90 @@
+name: NextJsPortfolio
+
+on:
+    push:
+        branches: ["main"]
+
+jobs:
+    build:
+        runs-on: self-hosted
+        steps:
+            - name: Checkout the code
+              uses: actions/checkout@v4
+              with:
+                  clean: false
+                  fetch-depth: 0
+
+    server:
+        needs: build
+        runs-on: self-hosted
+        strategy:
+            matrix:
+                node-version: [22.x]
+
+        steps:
+            - name: Install Node Modules
+              run: npm i
+
+            - name: Build the code
+              run: npm run build
+
+            - name: Move the folder to /var/www/NextJsPortfolio
+              run: mv ./dist/* /var/www/NextJsPortfolio
+
+            - name: Change the working directory
+              run: cd /var/www/NextJsPortfolio
+
+            - name: Start or Re-Start PM2 process
+              run: |
+                  pm2 stop nextjsportfolio >> /dev/null 2>&1 || true
+                  pm2 start npm --name nextjsportfolio -- start --time
+
+            - name: Check and create NGINX configuration
+              run: |
+                  # Check if nextjsportfolio.conf exists in sites-available
+                  if [ ! -f /etc/nginx/sites-available/nextjsportfolio.conf ]; then
+                      echo "Creating NGINX configuration file..."
+                      sudo tee /etc/nginx/sites-available/nextjsportfolio.conf > /dev/null <<EOF
+                  server {
+                      listen 80;
+                      server_name dev.rahulcoder.in;
+                      
+                      location / {
+                          proxy_pass http://localhost:3000;
+                          proxy_http_version 1.1;
+                          proxy_set_header Upgrade \$http_upgrade;
+                          proxy_set_header Connection 'upgrade';
+                          proxy_set_header Host \$host;
+                          proxy_set_header X-Real-IP \$remote_addr;
+                          proxy_set_header X-Forwarded-For \$proxy_add_x_forwarded_for;
+                          proxy_set_header X-Forwarded-Proto \$scheme;
+                          proxy_cache_bypass \$http_upgrade;
+                      }
+                  }
+                  EOF
+                      echo "NGINX configuration file created successfully."
+                  else
+                      echo "NGINX configuration file already exists."
+                  fi
+
+            - name: Check and create symbolic link
+              run: |
+                  # Check if symbolic link exists in sites-enabled
+                  if [ ! -L /etc/nginx/sites-enabled/nextjsportfolio.conf ]; then
+                      echo "Creating symbolic link..."
+                      sudo ln -s /etc/nginx/sites-available/nextjsportfolio.conf /etc/nginx/sites-enabled/nextjsportfolio.conf
+                      echo "Symbolic link created successfully."
+                  else
+                      echo "Symbolic link already exists."
+                  fi
+
+            - name: Test NGINX configuration
+              run: |
+                  echo "Testing NGINX configuration..."
+                  sudo nginx -t
+
+            - name: Reload NGINX
+              run: |
+                  echo "Reloading NGINX..."
+                  sudo systemctl reload nginx
+                  echo "NGINX reloaded successfully."

@@ -1,41 +1,138 @@
 @reference "../../app/globals.css";
 
-.portfolioFilterButton {
-	@apply rounded-full py-3 px-6 text-15 capitalize text-white border-0
-    transition-colors duration-300 not-sm:border-primary not-sm:border;
-}
-
-.portfolioFilterButtonInactive {
-	@apply bg-transparent;
-}
-
-.portfolioFilterButtonActive {
-	@apply bg-gradient-to-br from-0% from-secondary to-100% to-primary;
+.portfolioItems {
+	@apply grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6;
 }
 
 .portfolioItem {
-	@apply relative rounded-lg bg-accent-2 px-9 pt-9;
+	@apply rounded-lg p-6 hover:scale-105 transition-all duration-300 border h-full flex flex-col
+	border-transparent hover:border-primary/30 bg-gradient-to-br from-primary/20 to-secondary/20;
 }
 
-.portfolioItem img {
-	@apply w-full h-auto max-w-full object-cover;
+/* Portfolio card hover effects */
+.portfolioCard {
+	@apply relative rounded-lg p-6 transition-all duration-300 
+	border border-transparent hover:border-primary/30 hover:scale-105;
+	@apply bg-gradient-to-br from-primary/20 to-secondary/20;
 }
 
-.portfolioContentBox {
-	@apply absolute rounded-2xl mx-auto bottom-5 right-5 left-5 p-5
-    opacity-0 invisible duration-300 translate-y-4 
-    bg-gradient-to-br from-0% from-secondary to-100% to-primary
-    flex items-center justify-between;
+.portfolioCard:hover {
+	@apply shadow-xl;
+	box-shadow: 0 20px 40px rgba(135, 80, 247, 0.15);
 }
 
-.portfolioItem:hover .portfolioContentBox {
-	@apply opacity-100 visible translate-y-0;
+/* Live demo button on card */
+.cardLiveDemoButton {
+	@apply flex items-center justify-center w-8 h-8 bg-primary/20 hover:bg-primary/30 
+	border border-primary/30 hover:border-primary/50 rounded-lg text-primary hover:text-white 
+	transition-all duration-300;
 }
 
-.portfolioI {
-	@apply text-white duration-500 transition-all rotate-0;
+/* Tech stack badges */
+.techBadge {
+	@apply px-3 py-1 bg-primary/20 text-primary text-xs rounded-full 
+	border border-primary/30 transition-all duration-300;
 }
 
-.portfolioItem:hover .portfolioI {
-	@apply rotate-[360deg];
+.techBadge:hover {
+	@apply bg-primary/30 border-primary/50;
+}
+
+/* Modal backdrop */
+.modalBackdrop {
+	@apply fixed inset-0 bg-black-1/90 backdrop-blur-sm z-[9999] 
+	flex items-center justify-center p-4;
+}
+
+/* Modal content */
+.modalContent {
+	@apply bg-gradient-to-br from-accent-2 to-grey-2/50 rounded-xl max-w-2xl w-full max-h-[90vh] 
+	overflow-y-auto border border-primary/30 shadow-2xl;
+}
+
+/* Custom scrollbar for modal */
+.modalContent::-webkit-scrollbar {
+	width: 6px;
+}
+
+.modalContent::-webkit-scrollbar-track {
+	@apply bg-accent-2;
+}
+
+.modalContent::-webkit-scrollbar-thumb {
+	@apply bg-primary rounded-full;
+}
+
+.modalContent::-webkit-scrollbar-thumb:hover {
+	@apply bg-primary/80;
+}
+
+/* Animation classes */
+.fadeInScale {
+	animation: fadeInScale 0.3s ease-out forwards;
+}
+
+@keyframes fadeInScale {
+	from {
+		opacity: 0;
+		transform: scale(0.9);
+	}
+	to {
+		opacity: 1;
+		transform: scale(1);
+	}
+}
+
+/* Button hover effects */
+.viewDetailsButton {
+	@apply flex items-center gap-2 text-white hover:text-primary 
+	transition-colors duration-300;
+}
+
+.viewDetailsButton:hover .arrowIcon {
+	@apply rotate-45;
+}
+
+.liveDemoButton {
+	@apply flex items-center gap-2 bg-gradient-to-r from-secondary to-primary 
+	px-4 py-2 rounded-lg text-white text-sm font-medium hover:scale-105 
+	transition-transform duration-300;
+}
+
+/* Modal header live demo button */
+.modalLiveDemoButton {
+	@apply flex items-center gap-2 bg-gradient-to-r from-secondary to-primary 
+	px-4 py-2 rounded-lg text-white text-sm font-medium hover:scale-105 
+	transition-transform duration-300;
+}
+
+/* Pagination styles */
+.paginationButton {
+	@apply flex items-center gap-2 px-4 py-2 rounded-lg bg-accent-2 text-white 
+	hover:bg-primary/20 transition-colors duration-300 disabled:opacity-50 disabled:cursor-not-allowed;
+}
+
+.paginationNumber {
+	@apply w-10 h-10 rounded-lg transition-colors duration-300;
+}
+
+.paginationNumberActive {
+	@apply bg-primary text-white;
+}
+
+.paginationNumberInactive {
+	@apply bg-accent-2 text-grey-1 hover:bg-primary/20 hover:text-white;
+}
+
+/* Card height consistency */
+.portfolioCardContainer {
+	@apply h-full flex flex-col;
+}
+
+/* Line clamp for description */
+.line-clamp-3 {
+	display: -webkit-box;
+	-webkit-line-clamp: 3;
+	-webkit-box-orient: vertical;
+	overflow: hidden;
 }
