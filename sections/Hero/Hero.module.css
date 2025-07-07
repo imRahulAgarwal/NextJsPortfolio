@@ -1,7 +1,7 @@
 @reference "../../app/globals.css";
 
 .heroTitle {
-	@apply font-bold text-white text-[65px] bg-gradient-to-r from-0% from-primary to-100% to-white;
+	@apply font-bold text-white md:text-[65px] text-5xl bg-gradient-to-r from-0% from-primary to-100% to-white;
 	-webkit-background-clip: text;
 	-webkit-text-fill-color: transparent;
 	line-height: 1.2;

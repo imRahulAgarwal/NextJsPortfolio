@@ -113,7 +113,7 @@ body {
 }
 
 .section-header-title {
-	@apply text-[45px] bg-gradient-to-r from-0% from-primary to-100% to-white inline-flex gap-4 mb-0 font-bold;
+	@apply md:text-5xl text-4xl bg-gradient-to-r from-0% from-primary to-100% to-white inline-flex gap-4 mb-4 font-bold;
 	-webkit-background-clip: text;
 	-webkit-text-fill-color: transparent;
 }
@@ -157,4 +157,9 @@ body {
 /* Optional catch-all for any other statuses */
 .status-inDevelopment {
 	@apply bg-purple-600/20 text-purple-300 border border-purple-400/30;
+}
+
+.projectDescriptionUl {
+	list-style: disc;
+	padding-left: 1rem;
 }

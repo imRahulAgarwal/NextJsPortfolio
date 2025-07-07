@@ -3,6 +3,7 @@ import { motion } from "motion/react";
 import IPortfolioItem from "@/interfaces/Portfolio";
 import { ExternalLinkIcon, XIcon } from "lucide-react";
 import { projectStatusLabels } from "@/types/ProjectStatus";
+import DisplayRawHTML from "../DisplayRawHTML/DisplayRawHTML";
 
 interface PortfolioModalProps {
 	selectedProject: IPortfolioItem;
@@ -65,9 +66,10 @@ const PortfolioModal = ({ closeModal, selectedProject }: PortfolioModalProps) =>
 					)}
 
 					{/* Project Description */}
-					<div className="mb-6">
+					{/* <div className="mb-6">
 						<p className="text-grey-1">{selectedProject.fullDescription}</p>
-					</div>
+					</div> */}
+					<DisplayRawHTML html={selectedProject.fullDescription} cssClass="mb-6" />
 
 					{/* Role */}
 					<div className="mb-6">
@@ -76,30 +78,38 @@ const PortfolioModal = ({ closeModal, selectedProject }: PortfolioModalProps) =>
 					</div>
 
 					{/* Key Responsibilities */}
-					<div className="mb-6">
-						<h4 className="text-white font-semibold mb-3">Key Responsibilities</h4>
-						<ul className="space-y-2">
-							{selectedProject.responsibilities.map((responsibility, index) => (
-								<li key={index} className="text-grey-1 text-sm flex items-start">
-									<span className="text-primary mr-2 mt-1.5">•</span>
-									{responsibility}
-								</li>
-							))}
-						</ul>
-					</div>
+					{selectedProject.responsibilities.length ? (
+						<div className="mb-6">
+							<h4 className="text-white font-semibold mb-3">Key Responsibilities</h4>
+							<ul className="space-y-2">
+								{selectedProject.responsibilities.map((responsibility, index) => (
+									<li key={index} className="text-grey-1 text-sm flex items-start">
+										<span className="text-primary mr-2 mt-1.5">•</span>
+										{responsibility}
+									</li>
+								))}
+							</ul>
+						</div>
+					) : (
+						""
+					)}
 
 					{/* Key Achievements */}
-					<div className="mb-6">
-						<h4 className="text-white font-semibold mb-3">Key Achievements</h4>
-						<ul className="space-y-2">
-							{selectedProject.achievements.map((achievement, index) => (
-								<li key={index} className="text-grey-1 text-sm flex items-start">
-									<span className="text-primary mr-2 mt-1.5">•</span>
-									{achievement}
-								</li>
-							))}
-						</ul>
-					</div>
+					{selectedProject.achievements.length ? (
+						<div className="mb-6">
+							<h4 className="text-white font-semibold mb-3">Key Achievements</h4>
+							<ul className="space-y-2">
+								{selectedProject.achievements.map((achievement, index) => (
+									<li key={index} className="text-grey-1 text-sm flex items-start">
+										<span className="text-primary mr-2 mt-1.5">•</span>
+										{achievement}
+									</li>
+								))}
+							</ul>
+						</div>
+					) : (
+						""
+					)}
 
 					{/* Full Tech Stack */}
 					<div className="mb-6">

@@ -41,7 +41,7 @@ jobs:
                       sudo tee /etc/nginx/sites-available/nextjsportfolio.conf > /dev/null <<EOF
                   server {
                       listen 80;
-                      server_name dev.rahulcoder.in;
+                      server_name rahulcoder.in;
                       
                       location / {
                           proxy_pass http://localhost:4008;

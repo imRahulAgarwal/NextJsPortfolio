@@ -134,7 +134,7 @@
 }
 
 .mobileMenuOverlay {
-	@apply fixed inset-0 bg-black/95 z-[150] lg:hidden;
+	@apply fixed inset-0 w-full h-screen bg-black/95 z-[150] lg:hidden;
 	animation: slideInLeft 0.3s ease-in-out;
 }
 

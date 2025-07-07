@@ -6,8 +6,33 @@ const portfolioItems: IPortfolioItem[] = [
 		projectName: "RAGTracker",
 		companyName: "RAGScores",
 		mainDescription:
-			"Multi-tenant SaaS platform for mystery shopper-driven brand-store reviews with automated QA and multi-format reporting.",
-		fullDescription: `RAGTracker is a multi-tenant SaaS platform by RAGScores, designed to streamline brand-store evaluations via mystery shoppers. Shoppers capture answers to structured forms, along with multimedia evidence (photos, videos, audio), which are securely uploaded to cloud storage (Mega). Quality analysts review submissions—either approving, correcting minor errors, or returning incomplete responses—before publishing polished reports accessible in Excel, PDF, and web formats for both clients and internal teams.Its hierarchical management system (Department → Client → Brand → Store Type → Store → Campaign) ensures precise campaign assignment. Once campaigns end, shopper payment data is exported, validated, and manually imported—enforcing strict accuracy checks. RAGTracker’s modular setup (Questions, Responses, Campaigns, Payments, Media, Reporting) enables brands to independently monitor store performance, without RAGScores managing their infrastructure. Its SaaS architecture supports multiple clients and brands on a shared codebase, delivering scalability, isolation, and continuous enhancements.`,
+			"Multi-Tenant SaaS platform for customized reports generation based on the data collected by mystery shoppers for brand stores.",
+		fullDescription: `
+		<p>Multi-Tenant SaaS platform for customized reports generation based on the data collected by mystery shoppers for brand stores.</p>
+		<div class="mt-3">
+			<p>Project Flow:</p>
+			<ul class="projectDescriptionUl">
+				<li>The flow starts with creation of clients and their brands (one/many).</li>
+				<li>The next step is to create stores of a particular brand, where data will be collected by a mystery shoppers.</li>
+				<li>Survey forms are created with a set of questions, each with dynamic options of response type, media type allowed and total media count that can be uploded.</li>	
+				<li>Once all the three steps are done, a new campaign is created for the brand with the preferred survey form. The campaign can have multiple stores in it, for which data is to be collected (reviewing).</li>
+				<li>Once campaign is created shoppers are assigned / reassigned (if such scenario) to the store.</li>
+				<li>If the shopper approves the opportunity the process of filling the form begins.</li>
+				<li>The shopper fills the form with appropriate data and uplods media accordingly.</li>
+				<li>Once the form submission is completed, all the responses are auditted by a QA. The QA checks, modifies, approves or bounces the responses.</li>
+				<li>Even if one question is bounced (not approved), the shopper has to refill the form (only questions that are rejected)</li>
+				<li>And the process above repeats if there are issues in the data submitted by shopper.</li>
+				<li>Once all the responses are approved the report is generated in three forms (Web/PDF/Excel views).</li>
+				<li>And accordingly based on all the status, the information is updated accordingly in the client panel also!</li>
+			</ul>
+		</div>
+		<div class="mt-3">
+			<p>Modules Relationship:</p>
+			<div class="border border-primary rounded p-4 mt-3">
+				<img src="/RAGTracker_Modules.svg" alt="Module Relationship" />
+			</div>
+		</div>
+		`,
 		mainTechStack: ["Node.js", "Express.js", "MongoDB"],
 		fullTechStack: [
 			"Node.js",
@@ -38,14 +63,22 @@ const portfolioItems: IPortfolioItem[] = [
 	},
 	{
 		id: 2,
-		projectName: "RAGScores LMS",
+		projectName: "LMS",
 		companyName: "RAGScores",
-		mainDescription:
-			"White-label LMS enabling brands to deliver and manage customizable, role-based training via structured courses and assessments.",
-		fullDescription: `RAGScores LMS is a white-label, SaaS-ready Learning Management System built to empower brands with fully customizable training pipelines. It supports hierarchical structures—Departments → Sub‑Departments and Designations—to manage learners and SMEs efficiently.
-Courses are modular: comprised of Topics with rich multimedia content, followed by Assessments containing structured questions. Learners navigate through tailored curriculums, while SMEs can build, assign, and evaluate training modules.**
-
-The platform automates enrollment, progress tracking, grading, and certification workflows—complete with dashboards and performance reports—while supporting deep customization that existing out-of-the-box LMS platforms lack. It’s designed for brands needing sharper control over training content, user roles, and assessment quality.`,
+		mainDescription: "A white-label LMS project designed and developed for RAGScores.",
+		fullDescription: `
+		<p>A white-label LMS project designed and developed for RAGScores.</p>
+		<div class="mt-3">
+			<p>Project Flow:</p>
+			<ul class="projectDescriptionUl">
+				<li>The flow starts with the creation of SME, Learner and Courses.</li>
+				<li>Courses are categorized in Departments and Sub-Departments. Each course has many topics, and each topic has many text/media content related to it.</li>
+				<li>Each course can have many assignments that has to be completed by the learner after completing the course.</li>
+				<li>Progress of the learner is stored so the learner does not have to start their course progress all over again!</li>
+				<li>Three different panels for Admin Team, SME and Learners have been developed.</li>
+			</ul>
+		</div>
+		`,
 		mainTechStack: ["Node.js", "Express.js", "MongoDB"],
 		fullTechStack: ["Node.js", "Express.js", "MongoDB", "Nunjucks", "Bootstrap"],
 		role: "Full Stack Developer",
@@ -67,9 +100,22 @@ The platform automates enrollment, progress tracking, grading, and certification
 		id: 3,
 		projectName: "Ticket Jugaad",
 		companyName: "Jugaad Media",
-		mainDescription: "Event Management and Ticketing Platform",
-		fullDescription:
-			"Ticket Jugaad is a web-based event ticketing solution that enables admins to create and list events through an intuitive panel, and allows customers to securely browse and purchase tickets online. Supporting robust payment processing and centralized event management, the platform is ideal for organizers looking to streamline ticket sales, attendee tracking, and event promotion—all from a single, easy-to-use dashboard.",
+		mainDescription: "An event-ticket selling platform designed and developed for Jugaad Media.",
+		fullDescription: `
+		<p>An event-ticket selling platform designed and developed for Jugaad Media.</p>
+		<div class="mt-3">
+			<p>Project Flow:</p>
+			<ul class="projectDescriptionUl">
+				<li>The project flow starts with the creation  of events and the types of tickets linked to the events.</li>
+				<li>Events are categorised into different event types for easy management.</li>
+				<li>All the active events are listed to the users. Users can view all / single event.</li>
+				<li>The users can add tickets of various types, of event(s) in the cart and then proceed to checkout.</li>
+				<li>Once checkout is done the ticket is generated as a PDF with unique QR Code data.</li>
+				<li>This QRcode is to be scanned and verified at the event location. If the ticket is valid and not yet scanned the user is allowed.</li>
+				<li>All the transactions, orders, users etc. data is displayed in the admin panel!</li>
+			</ul>
+		</div>
+		`,
 		mainTechStack: ["Node.js", "Express.js", "MongoDB"],
 		fullTechStack: ["Node.js", "Express.js", "MongoDB", "RazorPay", "EJS", "Bootstrap"],
 		role: "Full Stack Developer",
@@ -87,9 +133,21 @@ The platform automates enrollment, progress tracking, grading, and certification
 		id: 4,
 		projectName: "Organic Blossoms",
 		companyName: "BBEL: Bharat Biogas Energy Limited",
-		mainDescription: "E-commerce platform for selling organic products",
-		fullDescription:
-			"Organic Blossoms is the D2C e‑commerce division of Bharat Biogas Energy Ltd, offering farm‑grown organic products to health-conscious customers. The platform uses WhatsApp OTP authentication and sends order invoices directly through WhatsApp. It integrates RazorPay for secure payments, while built-in inventory management ensures real-time stock accuracy. Invoices are auto-mailed to customers, striking a balance between sustainability and seamless user experience.",
+		mainDescription: "An ecommerce platform to sell organic farm products.",
+		fullDescription: `
+		<p>An ecommerce platform to sell organic farm products.</p>
+		<div class="mt-3">
+			<p>Project Flow:</p>
+			<ul class="projectDescriptionUl">
+				<li>Users register through Interakt Whatsapp OTP authentication.</li>
+				<li>Users browse and go through the shop and add itmes to cart.</li>
+				<li>Then the user can checkout and pay through RazorPay gateway.</li>
+				<li>Finally all the details are received on the admin panel and then the products are dispatched accordingly.</li>
+				<li>E-Mail is sent for every status update, taking from order confirmation, order shipment and delivering.</li>
+				<li>RBAC system is implemented to improve and restrict the access of resources for the admin team users.</li>
+			</ul>
+		</div>
+		`,
 		mainTechStack: ["Node.js", "Express.js", "MongoDB"],
 		fullTechStack: ["Node.js", "Express.js", "MongoDB", "Interakt WhatsApp API", "RazorPay", "EJS", "Bootstrap"],
 		role: "Full Stack Developer",
@@ -109,11 +167,67 @@ The platform automates enrollment, progress tracking, grading, and certification
 	},
 	{
 		id: 5,
+		projectName: "Instagram Media Downloader",
+		companyName: "Reference Client",
+		mainDescription: "A web tool to download instagram media through links.",
+		fullDescription: `
+		<p>A web tool to download instagram media through links.</p>
+		<div class="mt-3">
+			<p>Project Flow:</p>
+			<ul class="projectDescriptionUl">
+				<li>Users provide the links and at the backend data is collected accordingly.</li>
+				<li>The data collected consists of media, which is then provided to download.</li>
+				<li>The URL provided by user can be of Profile, Post, Carousel, IGTV, Reels, Story, Highlights.</li>
+			</ul>
+		</div>
+		`,
+		mainTechStack: ["Node", "Instagram API", "React"],
+		fullTechStack: ["Node", "Express", "Instagram API", "React"],
+		role: "Full Stack Developer",
+		responsibilities: [],
+		achievements: [],
+		projectStatus: "deliveredClosed",
+		projectLink: null,
+	},
+	{
+		id: 6,
+		projectName: "Airtel 5G Network Promoter",
+		companyName: "Airtel",
+		mainDescription: "A project designed for Airtel for a specific campaign to promote 5G network in Gujarat.",
+		fullDescription: `
+		<p>A project designed for Airtel for a specific campaign to promote 5G network in Gujarat.</p>
+		<div class="mt-3">
+			<p>Project Flow:</p>
+			<ul class="projectDescriptionUl">
+				<li>Users select a template that is to be used as a boundary in the image they click.</li>
+				<li>The user after clicking the image can save the image clicked with the template.</li>
+			</ul>
+		</div>
+		`,
+		mainTechStack: ["HTML", "CSS", "JavaScript"],
+		fullTechStack: ["HTML", "CSS", "JavaScript"],
+		role: "Full Stack Developer",
+		responsibilities: [],
+		achievements: [],
+		projectStatus: "deliveredClosed",
+		projectLink: null,
+	},
+	{
+		id: 7,
 		projectName: "MedParticle",
 		companyName: "Healthcare",
 		mainDescription: "Doctor appointment booking system with real-time availability",
-		fullDescription:
-			"MedParticle is a streamlined booking platform for doctor appointments, designed to prevent overlapping reservations and ensure reliability. Patients choose a time slot, the system checks availability in real time, and once confirmed, a confirmation email is automatically sent—delivering a smooth, trustworthy scheduling experience with minimal friction.",
+		fullDescription: `
+		<p>Doctor appointment booking system with real-time availability.</p>
+		<div class="mt-3">
+			<p>Project Flow:</p>
+			<ul class="projectDescriptionUl">
+				<li>Users select the date and time that suits them and book an appointment.</li>
+				<li>Appointment Details are shared through an e-mail.</li>
+				<li>Appointment time and date if already booked cannot be booked again!</li>
+			</ul>
+		</div>
+		`,
 		mainTechStack: ["Node.js", "Express.js", "MongoDB"],
 		fullTechStack: ["Node.js", "Express.js", "MongoDB", "EJS", "Bootstrap"],
 		role: "Full Stack Developer",
@@ -121,14 +235,13 @@ The platform automates enrollment, progress tracking, grading, and certification
 			"Built doctor appointment booking system",
 			"Implemented real-time slot availability",
 			"Created automated email notification system",
-			"Developed patient management interface",
 		],
 		achievements: ["Zero double-booking incidents", "Real-time slot availability", "Automated email notifications"],
 		projectStatus: "deliveredClosed",
 		projectLink: null,
 	},
 	{
-		id: 6,
+		id: 8,
 		projectName: "Wish Loan India",
 		companyName: "MedParticle",
 		mainDescription:
@@ -153,7 +266,7 @@ The platform automates enrollment, progress tracking, grading, and certification
 		projectLink: "https://wishloanindia.com",
 	},
 	{
-		id: 7,
+		id: 9,
 		projectName: "Greenbloom Bio Products",
 		companyName: "Greenbloom",
 		mainDescription:

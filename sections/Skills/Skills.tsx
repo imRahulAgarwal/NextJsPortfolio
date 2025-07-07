@@ -60,12 +60,12 @@ const Skills = () => {
 			<div className="custom-container">
 				<div className="flex flex-wrap">
 					<div className="w-full">
-						<div className={styles.sectionHeader}>
+						<div className="section-header">
 							<FadeInOnView>
-								<h2 className={styles.sectionHeaderTitle}>My Skills</h2>
+								<h2 className="section-header-title">My Skills</h2>
 							</FadeInOnView>
 							<FadeInOnView>
-								<p className={styles.sectionHeaderP}>
+								<p className="mt-[15px] mb-0">
 									We put your ideas and thus your wishes in the form of a unique web project that
 									inspires you and your customers.
 								</p>

@@ -64,15 +64,15 @@ const Services = () => {
 											id={service.id}
 											className="group relative flex flex-col lg:flex-row lg:items-center lg:justify-center gap-y-2 bg-transparent border-b border-b-secondary p-8 transition-all duration-300 ease-in-out hover:bg-gradient-to-br hover:from-0% hover:from-secondary hover:to-100% hover:to-primary">
 											<div className="flex flex-col lg:flex-row lg:items-center gap-x-5 lg:w-2/5">
-												<span className="group-hover:text-white text-primary text-xl font-bold transition-all duration-300">
+												<span className="group-hover:text-white text-primary md:text-xl text-lg font-bold transition-all duration-300">
 													{service.number}
 												</span>
-												<h3 className="text-3xl capitalize font-bold text-white">
+												<h3 className="md:text-3xl text-2xl capitalize font-bold text-white">
 													{service.title}
 												</h3>
 											</div>
 											<div className="lg:w-3/5 lg:pr-[15%]">
-												<p>{service.description}</p>
+												<p className="not-md:text-15">{service.description}</p>
 											</div>
 
 											<MoveUpRightIcon

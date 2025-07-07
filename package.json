@@ -9,11 +9,16 @@
     "lint": "next lint"
   },
   "dependencies": {
+    "@hookform/resolvers": "^5.1.1",
+    "@types/nodemailer": "^6.4.17",
     "lucide-react": "^0.517.0",
     "motion": "^12.19.1",
     "next": "15.3.3",
+    "nodemailer": "^7.0.4",
     "react": "^19.0.0",
-    "react-dom": "^19.0.0"
+    "react-dom": "^19.0.0",
+    "react-hook-form": "^7.59.0",
+    "zod": "^3.25.67"
   },
   "devDependencies": {
     "@tailwindcss/postcss": "^4",
