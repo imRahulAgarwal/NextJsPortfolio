@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { Sora, Russo_One } from "next/font/google";
 import "./globals.css";
+import BackToTop from "@/components/BackToTop/BackToTop";
 const soraSansSerif = Sora({
 	variable: "--font-sora",
 	subsets: ["latin"],
@@ -66,7 +67,6 @@ export const metadata: Metadata = {
 	icons: {
 		icon: "/favicon.ico",
 		apple: "/apple-touch-icon.png",
-		
 	},
 };
 
@@ -77,7 +77,10 @@ export default function RootLayout({
 }>) {
 	return (
 		<html lang="en">
-			<body className={`${soraSansSerif.variable} ${russoOneSansSerif.variable} antialiased`}>{children}</body>
+			<body className={`${soraSansSerif.variable} ${russoOneSansSerif.variable} antialiased`}>
+				{children}
+				<BackToTop />
+			</body>
 		</html>
 	);
 }
