@@ -3,9 +3,10 @@ import React from "react";
 import { useForm, SubmitHandler } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 import * as z from "zod";
-import { MailIcon, MapPinIcon } from "lucide-react";
+import { MailIcon, MapPinIcon, PhoneIcon } from "lucide-react";
 import styles from "./Contact.module.css";
 import FadeInOnView from "@/components/FadeInOnView/FadeInOnView";
+import Link from "next/link";
 
 // 1️⃣ Define validation schema with Zod
 const ContactSchema = z.object({
@@ -194,13 +195,24 @@ export default function Contact() {
 							<ul className={styles.contactInfoList}>
 								<li className={styles.contactInfoListItem}>
 									<div className={styles.contactInfoListIconBox}>
+										<PhoneIcon />
+									</div>
+									<div>
+										<p className={styles.textBoxP}>Number</p>
+										<Link className={styles.textBoxLink} href="tel:+919843186988">
+											(+91) 98431-86988
+										</Link>
+									</div>
+								</li>
+								<li className={styles.contactInfoListItem}>
+									<div className={styles.contactInfoListIconBox}>
 										<MailIcon />
 									</div>
 									<div>
 										<p className={styles.textBoxP}>Email</p>
-										<a className={styles.textBoxLink} href="mailto:imagarwal05@mail.com">
+										<Link className={styles.textBoxLink} href="mailto:imagarwal05@mail.com">
 											imagarwal05@mail.com
-										</a>
+										</Link>
 									</div>
 								</li>
 								<li className={styles.contactInfoListItem}>
