@@ -129,7 +129,7 @@
 }
 
 .mailToLinkHeader {
-	@apply text-white text-[15px] font-medium hover:text-primary;
+	@apply text-white text-[15px] font-medium hover:text-primary hidden sm:block;
 	transition: all 0.3s ease-in-out 0s;
 }
 

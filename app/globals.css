@@ -123,7 +123,7 @@ body {
 }
 
 .projectStatusBadge {
-	@apply ml-3 px-2 py-1 text-xs font-medium rounded transition-colors duration-300;
+	@apply px-2 py-1 text-xs font-medium rounded transition-colors duration-300;
 }
 
 .status-liveMaintaining {

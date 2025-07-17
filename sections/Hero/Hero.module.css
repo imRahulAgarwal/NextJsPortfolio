@@ -21,5 +21,5 @@
 }
 
 .heroImage {
-	@apply rounded-[38px] relative border-2 border-secondary transition-all duration-300 rotate-[4.29deg] hover:border-primary hover:rotate-0;
+	/* @apply rounded-[38px] relative border-2 border-secondary transition-all duration-300 rotate-[4.29deg] hover:border-primary hover:rotate-0; */
 }

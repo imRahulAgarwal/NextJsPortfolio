@@ -12,7 +12,7 @@ const leftContent = [
 	</h1>,
 	<div className="md:hidden">
 		<div className={styles.heroImageBox}>
-			<img src="/me.png" alt="" className={styles.heroImage} />
+			<img src="/me.webp" alt="" className={styles.heroImage} />
 		</div>
 	</div>,
 	<p className="md:w-5/6 text-xl font-light">
@@ -51,7 +51,7 @@ const Hero = () => {
 					<div className="md:col-span-6 hidden md:flex items-center justify-center">
 						<FadeInOnView>
 							<div className={styles.heroImageBox}>
-								<img src="/me.png" alt="" className={styles.heroImage} />
+								<img src="/me.webp" alt="" className={styles.heroImage} />
 							</div>
 						</FadeInOnView>
 					</div>

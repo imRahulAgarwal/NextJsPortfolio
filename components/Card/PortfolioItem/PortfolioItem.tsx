@@ -15,7 +15,7 @@ const PortfolioItem = ({ item, openModal }: PortfolioItemProps) => {
 		<FadeInOnView className={styles.portfolioItem}>
 			<div className="flex flex-col h-full">
 				{/* Project Header */}
-				<div className="mb-4 flex items-start justify-between">
+				<div className="mb-4 flex flex-col sm:flex-row items-start justify-between gap-y-2">
 					<div className="flex-1">
 						<h3 className={styles.projectName}>{item.projectName}</h3>
 						<p className={styles.companyName}>{item.companyName}</p>
@@ -26,7 +26,7 @@ const PortfolioItem = ({ item, openModal }: PortfolioItemProps) => {
 							href={item.projectLink}
 							target="_blank"
 							rel="noopener noreferrer"
-							className="ml-3 flex items-center justify-center w-8 h-8 bg-primary/20 hover:bg-primary/30 border border-primary/30 hover:border-primary/50 rounded-lg text-primary hover:text-white transition-all duration-300"
+							className="flex items-center justify-center w-8 h-8 bg-primary/20 hover:bg-primary/30 border border-primary/30 hover:border-primary/50 rounded-lg text-primary hover:text-white transition-all duration-300"
 							title="View Live Demo">
 							<ExternalLinkIcon size={16} />
 						</a>
@@ -52,7 +52,7 @@ const PortfolioItem = ({ item, openModal }: PortfolioItemProps) => {
 				</div>
 
 				{/* Action Button */}
-				<div className="flex items-center justify-between pt-4 border-t border-grey-2/50 mt-auto">
+				<div className="flex flex-col-reverse sm:flex-row sm:items-center justify-between gap-2 pt-4 border-t border-grey-2/50 mt-auto">
 					<button onClick={() => openModal(item)} className={styles.viewDetailBtn}>
 						<span className="text-sm">View Details</span>
 						<ArrowUpRightIcon

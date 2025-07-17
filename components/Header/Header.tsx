@@ -6,6 +6,7 @@ import Link from "next/link";
 import NavLink from "../NavLink/NavLink";
 import Button from "../Button/Button";
 import { Menu, X } from "lucide-react";
+import Image from "next/image";
 
 interface CustomNavLink {
 	label: string;
@@ -54,7 +55,14 @@ const Header = () => {
 		<header className={`${styles.header} ${isScrolled ? styles.headerSticky : styles.headerAbsolute}`}>
 			<div className="custom-container">
 				<div className="flex flex-wrap mx-3 items-center justify-between w-full">
-					<div>
+					<div className="flex items-center gap-2">
+						<Image
+							src="/logo.png"
+							height={50}
+							width={50}
+							alt="Rahul Agarwal's Logo"
+							className="object-cover"
+						/>
 						<Link href="mailto:imagarwal05@gmail.com" className={styles.mailToLinkHeader}>
 							imagarwal05@gmail.com
 						</Link>

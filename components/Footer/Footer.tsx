@@ -9,7 +9,7 @@ const Footer = () => {
 					<div className="col-md-12 text-center">
 						<div className={styles.footerLogoBox}>
 							<a href="#" className={styles.footerLogoBoxLink}>
-								<img src="assets/img/logo/logo.png" alt="" />
+								<img src="/logo.png" alt="Rahul Agarwal's Logo" />
 							</a>
 						</div>
 						<div className={styles.copyText}>
