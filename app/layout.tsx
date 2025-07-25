@@ -2,6 +2,8 @@ import type { Metadata } from "next";
 import { Sora, Russo_One } from "next/font/google";
 import "./globals.css";
 import BackToTop from "@/components/BackToTop/BackToTop";
+import GoogleAnalyticsTag from "@/components/GoogleAnalyticsTag/GoogleAnalyticsTag";
+
 const soraSansSerif = Sora({
 	variable: "--font-sora",
 	subsets: ["latin"],
@@ -80,6 +82,7 @@ export default function RootLayout({
 			<body className={`${soraSansSerif.variable} ${russoOneSansSerif.variable} antialiased`}>
 				{children}
 				<BackToTop />
+				<GoogleAnalyticsTag />
 			</body>
 		</html>
 	);

@@ -3,6 +3,14 @@ name: NextJsPortfolio
 on:
     push:
         branches: ["main"]
+        paths:
+            - "**.js"
+            - "**.ts"
+            - "**.tsx"
+            - "package.json"
+            - "tsconfig.json"
+            - "next.config.*"
+            - "tailwind.config.*"
 
 jobs:
     build:
@@ -25,13 +33,12 @@ jobs:
             - name: Cache node modules + Next.js build cache
               uses: actions/cache@v4
               with:
-                path: |
-                    ~/.npm
-                    ${{ github.workspace }}/.next/cache
-                key: ${{ runner.os }}-nextjs-${{ hashFiles('**/package-lock.json') }}-${{ hashFiles('**/*.ts','**/*.tsx','**/*.js','**/*.jsx') }}
-                restore-keys: |
-                    ${{ runner.os }}-nextjs-${{ hashFiles('**/package-lock.json') }}-
-
+                  path: |
+                      node_modules
+                      .next/cache
+                  key: ${{ runner.os }}-nextjs-${{ hashFiles('package-lock.json') }}
+                  restore-keys: |
+                      ${{ runner.os }}-nextjs-
 
             - name: Install Node Modules
               run: npm ci
@@ -39,57 +46,12 @@ jobs:
             - name: Build the code
               run: npm run build
 
-            - name: Start or Re-Start PM2 process
+            - name: Start or Reload PM2 Process
               run: |
-                  pm2 stop nextjsportfolio >> /dev/null 2>&1 || true
-                  pm2 start npm --name nextjsportfolio -- start --time
-
-            - name: Check and create NGINX configuration
-              run: |
-                  # Check if nextjsportfolio.conf exists in sites-available
-                  if [ ! -f /etc/nginx/sites-available/nextjsportfolio.conf ]; then
-                      echo "Creating NGINX configuration file..."
-                      sudo tee /etc/nginx/sites-available/nextjsportfolio.conf > /dev/null <<EOF
-                  server {
-                      listen 80;
-                      server_name rahulcoder.in;
-                      
-                      location / {
-                          proxy_pass http://localhost:4008;
-                          proxy_http_version 1.1;
-                          proxy_set_header Upgrade \$http_upgrade;
-                          proxy_set_header Connection 'upgrade';
-                          proxy_set_header Host \$host;
-                          proxy_set_header X-Real-IP \$remote_addr;
-                          proxy_set_header X-Forwarded-For \$proxy_add_x_forwarded_for;
-                          proxy_set_header X-Forwarded-Proto \$scheme;
-                          proxy_cache_bypass \$http_upgrade;
-                      }
-                  }
-                  EOF
-                      echo "NGINX configuration file created successfully."
+                  if pm2 list | grep -q "nextjsportfolio"; then
+                    echo "Reloading existing PM2 process..."
+                    pm2 reload nextjsportfolio --update-env
                   else
-                      echo "NGINX configuration file already exists."
+                    echo "Starting new PM2 process"
+                    pm2 start npm --name nextjsportfolio -- start --time
                   fi
-
-            - name: Check and create symbolic link
-              run: |
-                  # Check if symbolic link exists in sites-enabled
-                  if [ ! -L /etc/nginx/sites-enabled/nextjsportfolio.conf ]; then
-                      echo "Creating symbolic link..."
-                      sudo ln -s /etc/nginx/sites-available/nextjsportfolio.conf /etc/nginx/sites-enabled/nextjsportfolio.conf
-                      echo "Symbolic link created successfully."
-                  else
-                      echo "Symbolic link already exists."
-                  fi
-
-            - name: Test NGINX configuration
-              run: |
-                  echo "Testing NGINX configuration..."
-                  sudo nginx -t
-
-            - name: Reload NGINX
-              run: |
-                  echo "Reloading NGINX..."
-                  sudo systemctl reload nginx
-                  echo "NGINX reloaded successfully."
