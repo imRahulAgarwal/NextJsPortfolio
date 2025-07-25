@@ -34,7 +34,7 @@
 }
 
 .skillItemP {
-	@apply text-primary mb-0 text-center;
+	@apply text-white mb-0 text-center transition-colors duration-300;
 }
 
 /* Desktop hover effects */
@@ -55,6 +55,10 @@
 
 	.skillItem:hover .skillItemIconBox {
 		@apply opacity-100;
+	}
+
+	.skillItem:hover .skillItemP {
+		@apply text-primary;
 	}
 
 	.skillItem:hover .skillItemIconBoxImage {

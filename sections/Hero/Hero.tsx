@@ -2,6 +2,7 @@ import React from "react";
 import styles from "./Hero.module.css";
 import FadeInOnView from "@/components/FadeInOnView/FadeInOnView";
 import Link from "next/link";
+import Image from "next/image";
 
 const leftContent = [
 	<span className="block md:text-4xl text-2xl font-bold">I am Rahul</span>,
@@ -12,7 +13,7 @@ const leftContent = [
 	</h1>,
 	<div className="md:hidden">
 		<div className={styles.heroImageBox}>
-			<img src="/me.webp" alt="" className={styles.heroImage} />
+			<Image src="/me.webp" alt="" width={500} height={500} className={styles.heroImage} />
 		</div>
 	</div>,
 	<p className="md:w-5/6 text-xl font-light">
@@ -23,7 +24,7 @@ const leftContent = [
 
 const Hero = () => {
 	return (
-		<section className="bg-accent-1 py-[150px] px-0" id="hero">
+		<section className="bg-accent-1 sm:pt-[150px] not-sm:py-[100px] px-0" id="hero">
 			<div></div>
 			<div className="custom-container">
 				<div className="grid grid-cols-12 gap-5 mx-3">
@@ -51,7 +52,8 @@ const Hero = () => {
 					<div className="md:col-span-6 hidden md:flex items-center justify-center">
 						<FadeInOnView>
 							<div className={styles.heroImageBox}>
-								<img src="/me.webp" alt="" className={styles.heroImage} />
+								{/* <img src="/me.webp" alt="" className={styles.heroImage} /> */}
+								<Image src="/me.webp" alt="" height={800} width={800} className={styles.heroImage} />
 							</div>
 						</FadeInOnView>
 					</div>
