@@ -4,7 +4,12 @@ import React from "react";
 
 const experienceArray = [
 	{
-		year: "April 2025 - Present",
+		year: "August 2025 - Present",
+		role: "Intern - Full Stack Developer (Team Lead)",
+		company: "SurveyNex - Remote",
+	},
+	{
+		year: "April 2025 - August 2025",
 		role: "Intern - Frontend Developer",
 		company: "ByteUprise - Remote",
 	},
