@@ -19,11 +19,11 @@ const skillsArray: SkillItem[] = [
 	{ title: "Bootstrap", icon: "bootstrap.svg" },
 	{ title: "AWS S3", icon: "aws_s3.svg" },
 	{ title: "AWS EC2", icon: "aws_ec2.svg" },
-	{ title: "AWS Lambda", icon: "aws_lambda.svg" },
 	{ title: "Git", icon: "git.svg" },
 	{ title: "GitHub", icon: "github.svg" },
 	{ title: "DevOps (GitHub Actions)", icon: "github_actions.svg" },
 	{ title: "WordPress", icon: "wordpress.svg" },
+	{ title: "n8n", icon: "n8n.svg" },
 ];
 
 // Split skills into two rows

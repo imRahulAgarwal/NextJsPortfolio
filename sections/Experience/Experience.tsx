@@ -4,24 +4,19 @@ import React from "react";
 
 const experienceArray = [
 	{
-		year: "August 2025 - Present",
-		role: "Intern - Full Stack Developer (Team Lead)",
+		year: "Aug 2025 - Nov 2025",
+		role: "Full Stack Web Developer - Intern",
 		company: "SurveyNex - Remote",
 	},
 	{
 		year: "April 2025 - August 2025",
-		role: "Intern - Frontend Developer",
+		role: "Software Developer - Intern",
 		company: "ByteUprise - Remote",
 	},
 	{
-		year: "August 2024 - Present",
-		role: "Full Stack Developer (Freelance)",
-		company: "RAGScores - Remote",
-	},
-	{
-		year: "July 2023 - July 2024",
-		role: "Full Stack Developer",
-		company: "BTB Developer - Remote",
+		year: "Present",
+		role: "Full Stack MERN Developer - Freelance",
+		company: "",
 	},
 ];
 
@@ -46,7 +41,7 @@ const Experience = () => {
 							<div className="group-hover:text-white font-extrabold text-xl text-primary transition-colors duration-300 ease-in-out">
 								{exp.year}
 							</div>
-							<h3 className="text-2xl uppercase">{exp.role}</h3>
+							<h3 className="text-2xl">{exp.role}</h3>
 							<div>{exp.company}</div>
 						</div>
 					</FadeInOnView>

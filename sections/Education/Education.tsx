@@ -40,7 +40,7 @@ const Education = () => {
 							<div className="group-hover:text-white font-extrabold text-xl text-primary transition-colors duration-300 ease-in-out">
 								{edu.year}
 							</div>
-							<h3 className="text-2xl uppercase">{edu.institute}</h3>
+							<h3 className="text-2xl">{edu.institute}</h3>
 							<div>{edu.university}</div>
 						</div>
 					</FadeInOnView>
