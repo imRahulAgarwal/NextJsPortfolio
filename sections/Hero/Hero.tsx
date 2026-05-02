@@ -39,8 +39,8 @@ const Hero = () => {
 							<FadeInOnView>
 								<div className="flex flex-col flex-wrap justify-center gap-4">
 									<Link
-										href="/Rahul_Agarwal_Resume.pdf"
-										download={true}
+										href="/resume"
+										download={"Rahul_Agarwal_Resume.pdf"}
 										className={styles.downloadResumeButton}>
 										Download Resume
 									</Link>

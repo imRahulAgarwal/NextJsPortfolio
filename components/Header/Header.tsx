@@ -78,14 +78,14 @@ const Header = () => {
 						</ul>
 
 						<Link href={"#contact"}>
-							<Button title="Hire Me!" />
+							<Button title="Connect with Me!" />
 						</Link>
 					</div>
 
 					<div className="lg:hidden flex items-center gap-5">
 						<div className="hidden sm:block">
 							<Link href={"#contact"}>
-								<Button title="Hire Me!" />
+								<Button title="Connect with Me!" />
 							</Link>
 						</div>
 
@@ -123,7 +123,7 @@ const Header = () => {
 								</ul>
 
 								<Link href={"#contact"} onClick={closeMobileMenu}>
-									<Button title="Hire Me!" />
+									<Button title="Connect with Me!" />
 								</Link>
 
 								<Link
