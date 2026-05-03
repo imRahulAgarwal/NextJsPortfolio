@@ -11,36 +11,37 @@ on:
             - "tsconfig.json"
             - "next.config.*"
             - "tailwind.config.*"
+    workflow_dispatch:
 
 jobs:
-    build:
+    deploy:
         runs-on: self-hosted
         steps:
+            - name: Store current package-lock.json hash
+              id: current-package-lock-hash
+              run: echo "hash=$(sha256sum package-lock.json | awk '{print $1}')" >> $GITHUB_OUTPUT
+
+            - name: Create .env file
+              run: echo "${{ secrets.PRODUCTION_ENV }}" > .env
+
             - name: Checkout the code
               uses: actions/checkout@v4
               with:
                   clean: false
                   fetch-depth: 0
 
-    server:
-        needs: build
-        runs-on: self-hosted
-        strategy:
-            matrix:
-                node-version: [22.x]
-
-        steps:
-            - name: Cache node modules + Next.js build cache
-              uses: actions/cache@v4
-              with:
-                  path: |
-                      node_modules
-                      .next/cache
-                  key: ${{ runner.os }}-nextjs-${{ hashFiles('package-lock.json') }}
-                  restore-keys: |
-                      ${{ runner.os }}-nextjs-
+            - name: Compare latest package-lock.json hash with previous hash
+              id: compare-hashes
+              run: |
+                  NEW_HASH=$(sha256sum package-lock.json | awk '{ print $1 }')
+                  if [ "$NEW_HASH" != "${{ steps.current-package-lock-hash.outputs.hash }}" ]; then
+                    echo "changed=true" >> $GITHUB_OUTPUT
+                  else
+                    echo "changed=false" >> $GITHUB_OUTPUT
+                  fi
 
             - name: Install Node Modules
+              if: steps.compare-hashes.outputs.changed == 'true'
               run: npm ci
 
             - name: Build the code

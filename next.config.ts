@@ -3,12 +3,16 @@ import type { NextConfig } from "next";
 const nextConfig: NextConfig = {
 	reactStrictMode: false,
 	rewrites: async () => {
-		return [
-			{
+		const rewriteUrls = [];
+
+		if (process.env.RESUME_URL) {
+			rewriteUrls.push({
 				source: "/resume",
-				destination: "https://rahul-agarwal.s3.ap-south-1.amazonaws.com/Rahul_Agarwal_Resume.pdf",
-			},
-		];
+				destination: process.env.RESUME_URL,
+			});
+		}
+
+		return rewriteUrls;
 	},
 };
 
