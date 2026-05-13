@@ -12,7 +12,7 @@ import Link from "next/link";
 const ContactSchema = z.object({
 	firstName: z.string().min(2, "First name should be at least 2 characters").nonempty("First name is required"),
 	lastName: z.string().min(2, "Last name should be at least 2 characters").optional().or(z.literal("")),
-	email: z.string().email("Invalid email address").nonempty("Email is required"),
+	email: z.email("Invalid email address").nonempty("Email is required"),
 	phone: z
 		.string()
 		.regex(/^\+?[0-9\s\-()]{7,}$/, "Invalid phone number")
