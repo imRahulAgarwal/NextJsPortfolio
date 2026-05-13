@@ -56,3 +56,4 @@ jobs:
                     echo "Starting new PM2 process"
                     pm2 start npm --name nextjsportfolio -- start --time
                   fi
+                  pm2 save
